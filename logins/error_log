@@ -1,0 +1,10 @@
+[07-Aug-2018 03:07:27 UTC] PHP Warning:  require_once(/../config/config.inc.php): failed to open stream: No such file or directory in /home/u327620716/public_html/logins/confirm.php on line 3
+[07-Aug-2018 03:07:27 UTC] PHP Fatal error:  require_once(): Failed opening required '/../config/config.inc.php' (include_path='.:/opt/alt/php71/usr/share/pear') in /home/u327620716/public_html/logins/confirm.php on line 3
+[07-Aug-2018 03:07:37 UTC] PHP Warning:  require_once(/config/config.inc.php): failed to open stream: No such file or directory in /home/u327620716/public_html/logins/confirm.php on line 3
+[07-Aug-2018 03:07:37 UTC] PHP Fatal error:  require_once(): Failed opening required '/config/config.inc.php' (include_path='.:/opt/alt/php71/usr/share/pear') in /home/u327620716/public_html/logins/confirm.php on line 3
+[07-Aug-2018 03:09:19 UTC] PHP Warning:  require_once(../../config/config.inc.php): failed to open stream: No such file or directory in /home/u327620716/public_html/logins/confirm.php on line 3
+[07-Aug-2018 03:09:19 UTC] PHP Fatal error:  require_once(): Failed opening required '../../config/config.inc.php' (include_path='.:/opt/alt/php71/usr/share/pear') in /home/u327620716/public_html/logins/confirm.php on line 3
+[07-Aug-2018 05:02:27 Etc/UTC] PHP Exception: Error #0 "Call to undefined function login_as_this()" in logins/confirm.php on line 65
+
+[07-Aug-2018 05:02:37 Etc/UTC] PHP Exception: Error #0 "Call to undefined function login_as_this()" in logins/confirm.php on line 65
+
