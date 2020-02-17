@@ -1,0 +1,80 @@
+<!--#include("_head.html")-->
+<load target="css/gmdata.css" />
+<load target="css/bootstrap.css" />
+<load target="css/equeer-blue.css" />
+<script src="js/jscolor.js"></script>
+<div id=navi><div style="float:left"><p>{$lang->game_register}</p></div></div>
+</div>
+<form class="board_editor" action="./" method="post" ruleset="insert_board">
+    <input type="hidden" name="module" value="gmdata" />
+	<input type="hidden" name="act" value="procGMdataInsertBoard" />
+    <input type="hidden" name="member_srl" value={$member_srl} />
+    <div class="create_form">
+        <div cond="$XE_VALIDATOR_MESSAGE">
+		<p class="error_message">{$XE_VALIDATOR_MESSAGE}</p>
+	</div> 
+		<div id="con_margin">
+        <div>
+            <label for="game_title">{$lang->game_title} <span class="text-danger">*</span></label>
+            <input class=form-control type="text" name="game_title">
+            <span class="help-block">게임의 타이틀을 입력해주세요.</span>
+        </div>
+		<br>
+        <div>
+            <label for="game_des">{$lang->game_des}</label>
+            <textarea name="game_des" class="form-control" rows="5"></textarea>
+            <span class="help-block">게임의 설명을 입력해주세요(옵션)</span>
+        </div>
+        <br>
+		<div>
+            <label for="game_homepage">게임 소개 웹페이지 <span class="text-danger">*</span></label>
+            <input class=form-control type="text" name="game_homepage">
+            <span class="help-block">게임의 소개 웹페이지을 입력해주세요. 네이버 카페도 좋습니다!</span>
+        </div>
+        <br>
+        <div>
+            <label for="game_platform">사용 플랫폼 <span class="text-danger">*</span></label>  
+            <select class="form-control" name="game_platform">
+                <option value="winpc">Windows PC</option>
+                <option value="macpc">Mac PC</option>
+				<option value="linpc">Linux PC</option>
+				<option value="andro">Android</option>
+				<option value="iosmb">iOS</option>
+				<option value="other">Other Platform..</option>
+            </select>
+            <span class="help-block">운영할 플랫폼을 선택합니다. </span>
+        </div>
+        <br>
+        <div>
+            <label for="game_version">게임 버전 (빌드 버전) <span class="text-danger">*</span></label>
+            <input class=form-control input type="number" pattern="[0-9]*" inputmode="numeric" min="0" name="game_version" value="1">
+            <span class="help-block">게임 업데이트시 사용할 버전입니다. (숫자만 입력해주세요!)</span>
+        </div>
+		<br>
+        <div>
+            <label for="game_minversion">게임 최소 실행 버전 (빌드 버전) <span class="text-danger">*</span></label>
+            <input class=form-control input type="number" pattern="[0-9]*" inputmode="numeric" min="0" name="game_minversion" value="1">
+            <span class="help-block">게임 강제 업데이트 버전 이하은 무조건 업데이트 됩니다. 게임 빌드 버전과 같으면 무조건 강제 업데이트 합니다 (숫자만 입력해주세요!)</span>
+        </div>
+		<br>
+		<div>
+            <label for="game_showversion">게임 버전 (보여질 버전) <span class="text-danger">*</span></label>
+            <input class=form-control type="text" name="game_showversion" value="1.0.0">
+            <span class="help-block">유저들에게 보여질 버전입니다. (예. 1.0.0)</span>
+        </div>
+		<br>
+		<div>
+            <label for="game_notice">게임 공지 사항 게시글 srl</label>
+            <input class=form-control type="text" name="game_notice">
+            <span class="help-block">게임 공지사항 게시글의 번호를 입력해주세요. (옵션)</span>
+        </div>
+		<br>
+        <div>
+            <label for="game_datas">게임 데이터</label>
+            <textarea name="game_datas" class="form-control" rows="5"></textarea>
+            <span class="help-block">게임에서 사용할 데이터를 json 형식으로 입력해주세요. (옵션)</span>
+        </div>
+		</div>
+        <div class="centralize"><input class="eq button button-naver margin-bottom-small" type="submit" value="{$lang->cmd_registration}" /></div>
+    </div>
+</form>

@@ -1,0 +1,17 @@
+<!--#include("_head.html")-->
+<load target="css/gmdata.css" />
+<load target="css/equeer-blue.css" />
+<div cond="$XE_VALIDATOR_MESSAGE">
+		<p class="error_message">{$XE_VALIDATOR_MESSAGE}</p>
+	</div> 
+<div class=box_warning><center>해당 게임을 삭제하시겠습니까?</center><br>
+    <span><center>게임을 삭제 하시면 다시 복구하실 수 없습니다.</center></span><br><br><br>
+<center>
+<form action="./" method="post">
+    <input type="hidden" name="mid" value="gmdata" />
+	<input type="hidden" name="act" value="procGMdataDeleteBoard" />
+    <input type="hidden" name="game_token" value={$game_token} />
+    <button type="submit" class="eq button button-primary button-rounded">확인</button>
+<button type="button" class="eq button button-default button-rounded" onClick="location.href='gmdata'">취소</button></center>
+</form>
+</div>

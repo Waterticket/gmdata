@@ -1,0 +1,70 @@
+<include target="_head.html" />
+<load target="css/bootstrap.min.css" />
+<load target="css/perfect-scrollbar.css" />
+<load target="css/main.css" />
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/perfect-scrollbar.min.js"></script>
+<script src="js/main.js"></script>
+
+<h2>게임 데이터 보기/수정</h2><hr>
+<h3>게임 명 : {$game_title}</h3><br>
+<p style="color:mediumvioletred;">저장된 데이터 수 : <b style="color: red;">{$data_count} </b></p>
+<p style="color:red; font-size:2em;" cond="$logged_info->member_srl == 4">관리자 모드 입니다. 주의하시길..</p>
+<p style="text-align: right;">
+    <select id="search_sort">
+        <option value="1" selected >닉네임</option>
+        <option value="2" >유저번호</option>
+        <option value="3" >유저상태</option>
+    </select>
+    <input type="text" style="width: 200px">&nbsp;
+    <input type="button" value="검색">
+</p>
+
+<div class="wrap-table100">
+    <div class="table100 ver1 m-b-110">
+        <div class="table100-head">
+            <table>
+                <thead>
+                <tr class="row100 head">
+                    <th class="cell100 column1">유저 SRL</th>
+                    <th class="cell100 column2">유저 Status</th>
+                    <th class="cell100 column3">유저 이름</th>
+                    <th class="cell100 column4">데이터</th>
+                    <th class="cell100 column5">설정&nbsp;&nbsp;&nbsp;</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+
+        <div class="table100-body js-pscroll">
+            <table>
+                <tbody>
+                <!--@if($data_count == 0)-->
+                <tr class="row100 body">
+                    <td class="cell100" colspan="5" style="text-align: center;">데이터가 없습니다!</td>
+                </tr>
+                <!--@else if($data_count == 1)-->
+                <tr class="row100 body">
+                    <td class="cell100 column1">{$data_value->usr_srl}</td>
+                    <td class="cell100 column2">{json_decode($data_value->mb_status)->status} <b>[{json_decode($data_value->mb_status)->des}]</b><!--@if(json_decode($data_value->mb_status)->status != 1)--><br><!--@end--></td>
+                    <td class="cell100 column3"><b>{$data_value->name ? $data_value->name : "NULL (값 없음)"}</b></td>
+                    <td class="cell100 column4"><pre>{$data_value->datas ? json_encode(json_decode(base64_decode($data_value->datas)), JSON_PRETTY_PRINT) : "데이터 없음"}</pre></td>
+                    <td class="cell100 column5" style="text-align: center;"><a href="{getUrl('act','dispGMdataEditUserData','game_token',$game_token,'user_srl',$data_value->usr_srl)}" title="유저 관리"><img src="css/settingIcon.png"/></a></td>
+                </tr>
+                <!--@else-->
+                <!--@foreach($data_value as $key => $val)-->
+                <tr class="row100 body">
+                    <td class="cell100 column1">{$val->usr_srl}</td>
+                    <td class="cell100 column2">{json_decode($val->mb_status)->status} [{json_decode($val->mb_status)->des}]</td>
+                    <td class="cell100 column3">{$val->name ? $val->name : "NULL (값 없음)"}</td>
+                    <td class="cell100 column4"><pre>{$val->datas ? json_encode(json_decode(base64_decode($val->datas)), JSON_PRETTY_PRINT) : "데이터 없음"}</pre></td>
+                    <td class="cell100 column5" style="text-align: center;"><a href="{getUrl('act','dispGMdataEditUserData','game_token',$game_token,'user_srl',$val->usr_srl)}" title="유저 관리"><img src="css/settingIcon.png"/></a></td>
+                </tr>
+                <!--@end-->
+                <!--@end-->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p>저장된 데이터 수 : {$data_count}</p>
+</div>

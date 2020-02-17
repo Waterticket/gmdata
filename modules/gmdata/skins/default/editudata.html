@@ -1,0 +1,143 @@
+<include target="_head.html" />
+<load target="css/gmdata.css" />
+<load target="css/equeer-blue.css" />
+<script src="js/calendar.js"></script>
+<h2>유저 관리</h2><br><hr>
+<form action="./" method="post">
+    <input type="hidden" name="module" value="gmdata" />
+    <input type="hidden" name="act" value="procGMdataUpdateUserData" />
+    <input type="hidden" name="member_srl" value={$member_srl} />
+    <input type="hidden" name="game_token" value={$game_token} />
+    <input type="hidden" name="user_srl" value={$user_srl} />
+    <div class="create_form">
+        <div cond="$XE_VALIDATOR_MESSAGE">
+            <p class="error_message">{$XE_VALIDATOR_MESSAGE}</p>
+        </div>
+        <div id="con_margin">
+            <div>
+                <label>유저 닉네임</label>
+                <input class=form-control type="text" name="user_nick" value="{htmlspecialchars($user_data->name)}">
+            </div>
+            <hr><br>
+            <div>
+                <label for="user_stat">유저 상태</label>
+                <select class="form-control" id="user_stat" name="user_stat" onchange="changeSelected()">
+                    <option value="1" <!--@if(json_decode($user_data->usr_status)->status == 1)-->selected<!--@end-->>정상 유저</option>
+                    <option value="2" <!--@if(json_decode($user_data->usr_status)->status == 2)-->selected<!--@end-->>유저 차단</option>
+                    <option value="3" <!--@if(json_decode($user_data->usr_status)->status == 3)-->selected<!--@end-->>유저 영구차단</option>
+                </select>
+            </div>
+            <br>
+            <div id="block_reasons" style="display:none;">
+                <label>차단 사유</label>
+                <input class=form-control type="text" name="block_reason" value="{htmlspecialchars(json_decode($user_data->usr_status)->block_reason)}">
+                <br><br>
+            </div>
+            <div id="block_dates" style="display:none;">
+                <label>차단 기간</label>
+                <select class="form-control" id="block_date_sel" onchange="changeDate()">
+                    <option value="" disabled>오늘 기준으로</option>
+                    <option value="1" selected >1일</option>
+                    <option value="2" >2일</option>
+                    <option value="3" >3일</option>
+                    <option value="4" >4일</option>
+                    <option value="5" >5일</option>
+                    <option value="6" >6일</option>
+                    <option value="7" >7일 (1주)</option>
+                    <option value="14" >14일 (2주)</option>
+                    <option value="21" >21일 (3주)</option>
+                    <option value="30" >30일 (1달)</option>
+                    <option value="99" >직접 선택</option>
+                </select>
+                <br><span class="help-block" id="calc_deny_Date">차단 기간 입니다.</span>
+                <br>
+            </div>
+            <div id="block_dates_etc" style="display:none;">
+                <input class=form-control type="text" id="block_date_etc" name="block_date_etc" onClick="fnPopUpCalendar(block_date_etc,block_date_etc,'yyyy/mm/dd')" value="{htmlspecialchars(json_decode($user_data->usr_status)->block_date)}" onchange="changeDate()">
+                <br>
+            </div>
+            <hr><br>
+            <div>
+                <label>유저 게임 데이터</label>
+                <textarea class="form-control" style="width: 500px" name="game_data">{htmlspecialchars(base64_decode($user_data->datas))}</textarea>
+                <span class="help-block">유저의 게임 데이터 입니다&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://blog.cookiee.net/37">문법 참고</a></span>
+            </div>
+            <br>
+        </div>
+    </div>
+    <div class="centralize"><input class="eq button button-twitter margin-bottom-small" type="submit" value="업데이트" />&nbsp;&nbsp;&nbsp;<input class="eq button button-google margin-bottom-small" type="button" value="유저 삭제" /></div>
+</form>
+<script>
+    function changeSelected()
+    {
+        var statSelect = document.getElementById("user_stat");
+        var selectValue = Number(statSelect.options[statSelect.selectedIndex].value);
+        var block_reason = document.getElementById("block_reasons");
+        var block_date = document.getElementById("block_dates");
+        var block_dates_etc = document.getElementById("block_dates_etc");
+
+        switch(selectValue){
+            case 1:
+                block_reason.style.display='none';
+                block_date.style.display='none';
+                block_dates_etc.style.display='none';
+                break;
+
+            case 2:
+                block_reason.style.display='block';
+                block_date.style.display='block';
+                block_dates_etc.style.display='none';
+                break;
+
+            case 3:
+                block_reason.style.display='block';
+                block_date.style.display='none';
+                block_dates_etc.style.display='none';
+                break;
+        }
+    }
+
+    function changeDate()
+    {
+        var statSelect = document.getElementById("block_date_sel");
+        var selectValue = Number(statSelect.options[statSelect.selectedIndex].value);
+        var block_date_etc = document.getElementById("block_date_etc");
+        var block_dates_etc = document.getElementById("block_dates_etc");
+        var calc_deny_Date = document.getElementById("calc_deny_Date");
+        var date = new Date();
+
+        if(selectValue == 99){
+            block_dates_etc.style.display='block';
+            calc_deny_Date.style.display='none';
+            //calc_deny_Date.innerText = "차단 해제되는 날 : "+dateDiff(block_dates_etc.innerHTML.replace("/","-"), new Date());
+            //alert(block_dates_etc.innerText.replace("/","-"));
+        }else{
+            date.setDate(date.getDate() + selectValue);
+            block_dates_etc.style.display='none';
+            calc_deny_Date.style.display='block';
+            calc_deny_Date.innerText = "차단 해제되는 날 : "+date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate()+" "+getDate(date.getDay())+"요일 ";
+            block_date_etc.value = date.getFullYear()+"/"+(date.getMonth()+1)+"/"+date.getDate();
+        }
+    }
+
+    function getDate(dt){
+        var ar = ["일","월","화","수","목","금","토"];
+        return ar[dt];
+    }
+
+    function dateDiff(_date1, _date2) {
+        var diffDate_1 = _date1 instanceof Date ? _date1 : new Date(_date1);
+        var diffDate_2 = _date2 instanceof Date ? _date2 : new Date(_date2);
+
+        diffDate_1 = new Date(diffDate_1.getFullYear(), diffDate_1.getMonth()+1, diffDate_1.getDate());
+        diffDate_2 = new Date(diffDate_2.getFullYear(), diffDate_2.getMonth()+1, diffDate_2.getDate());
+
+        var diff = Math.abs(diffDate_2.getTime() - diffDate_1.getTime());
+        diff = Math.ceil(diff / (1000 * 3600 * 24));
+
+        return diff;
+    }
+
+    changeSelected();
+    changeDate();
+</script>

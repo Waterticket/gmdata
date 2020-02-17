@@ -1,0 +1,55 @@
+<!--#include("_head.html")-->
+<load target="css/gmdata.css" />
+<load target="css/equeer-blue.css" />
+<div id=navi>
+    <div style="float:left"><p>Professional Version</p></div>
+    <!--@if(!$pro)-->
+    <div style="float:right">
+        <button type="button" class="eq button button-danger margin-bottom-small" onClick="location.href='gmdata?act=dispGMdataProConfirm'">
+            업그레이드
+        </button>
+    </div>
+	<!--@else-->
+	<div style="float:right">
+        <button type="button" class="eq button button-danger margin-bottom-small" onClick="#">
+            프로입니다!
+        </button>
+    </div>
+    <!--@end-->
+    <br>
+    <div class=description>프로페셔널 버전으로 업그레이드하세요. 1000포인트로 더욱 강화된 프로버전을 구매하실 수 있습니다.</div>
+</div>
+<br>
+<br>
+<div>
+<div class = "pro_list">
+    <div class="list_caption">게임 관리 툴 특징</div>
+    <div class="list_free">Free</div>
+    <div class="list_blank"></div>
+    <div class="list_pro">Pro</div>
+</div>
+<div class = "pro_list">
+    <div class="list_caption">배너 밑 광고 표시</div>
+    <div class="list_free">표시함</div>
+    <div class="list_blank"></div>
+    <div class="list_pro">광고제거</div>
+</div>
+<div class = "pro_list">
+    <div class="list_caption">등록가능 게임 수</div>
+    <div class="list_free">3</div>
+    <div class="list_blank"></div>
+    <div class="list_pro">100</div>
+</div>
+<div class = "pro_list">
+    <div class="list_caption">등록가능 데이터 길이</div>
+    <div class="list_free">3000자(영어기준)</div>
+    <div class="list_blank"></div>
+    <div class="list_pro">제한 없음</div>
+</div>
+<div class = "pro_list">
+    <div class="list_caption">게임 업데이터 파일 서버</div>
+    <div class="list_free">구글 드라이브 or 기타서버</div>
+    <div class="list_blank"></div>
+    <div class="list_pro">쿠키 서버<br>(속도 보장, 다운 바)</div>
+</div>
+</div>

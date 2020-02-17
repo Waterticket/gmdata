@@ -1,0 +1,5 @@
+<table name="gmdata_login">
+	<column name="id" type="number" size="100" auto_increment ="auto_increment" primary_key="primary_key" />
+	<column name="game_token" type="varchar" size="60" notnull="notnull" />
+    <column name="member_srl" type="number" size="10" notnull="notnull" default="0" index="idx_member_srl" />
+</table>

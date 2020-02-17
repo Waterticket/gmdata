@@ -1,0 +1,159 @@
+<!--#include("_head.html")-->
+<load target="css/gmdata.css" />
+<load target="css/bootstrap.css" />
+<load target="css/equeer-blue.css" />
+<script src="js/jscolor.js"></script>
+
+<div id=navi><div style="float:left"><p>{$lang->game_modify}</p></div></div>
+<form class="board_editor" action="./" method="post" ruleset="insert_board">
+    <input type="hidden" name="module" value="gmdata" />
+	<input type="hidden" name="act" value="procGMdataUpdateBoard" />
+    <input type="hidden" name="member_srl" value={$member_srl} />
+	<input type="hidden" name="game_token" value={$game_token} />
+    <div class="create_form">
+        <div cond="$XE_VALIDATOR_MESSAGE">
+		<p class="error_message">{$XE_VALIDATOR_MESSAGE}</p>
+	</div> 
+		<div id="con_margin">
+        <div>
+            <label for="game_title">{$lang->game_title}</label>
+            <input class=form-control type="text" name="game_title" placeholder="{$game_name}" disabled>
+            <span class="help-block">게임 이름입니다. 변경을 원할시 관리자에게 문의하세요</span>
+        </div>
+        <br>
+		<div>
+            <label for="game_title">Client Secret</label>
+            <input class=form-control type="password" id="game_secret" name="game_secret" value="{$game_secret}" readonly>
+            <span class="help-block">클라이언트 비밀키 입니다. <span class="text-danger">유출되지않게 주의하세요!!</span>
+			<div style="float:right;">
+			<input type="checkbox" id="showPwd" />
+            <label for="showPwd">비밀키 보이기</label>
+			<input type="button" value="초기화" onclick="javascript:PickRandomWord();">
+			</div>
+			</span>
+        </div>
+		<br>
+        <div>
+            <label for="game_des">{$lang->game_des}</label>
+            <textarea name="game_des" class="form-control" rows="5">{$game_des}</textarea>
+            <span class="help-block">{$lang->sub_insert_des}</span>
+        </div>
+		<br>
+		<div>
+            <label for="game_homepage">게임 소개 웹페이지 <span class="text-danger">*</span></label>
+            <input class=form-control type="text" name="game_homepage" value="{$game_homepage}">
+            <span class="help-block">게임의 소개 웹페이지을 입력해주세요. </span>
+        </div>
+		<hr>
+		<h4><strong>▷ 게임 버전</strong></h4>
+		<br>
+        <div>
+            <label for="game_version">게임 버전 (빌드 버전) <span class="text-danger">*</span></label>
+            <input class=form-control input type="number" pattern="[0-9]*" inputmode="numeric" min="0" name="game_version" value={$game_version}>
+            <span class="help-block">게임 업데이트시 사용할 버전입니다. (숫자만 입력해주세요!)</span>
+        </div>
+		<br>
+        <div>
+            <label for="game_minversion">게임 최소 실행 버전 (빌드 버전) <span class="text-danger">*</span></label>
+            <input class=form-control input type="number" pattern="[0-9]*" inputmode="numeric" min="0" name="game_minversion" value={$game_minversion}>
+            <span class="help-block">게임 강제 업데이트 버전 이하은 무조건 업데이트 됩니다. 게임 빌드 버전과 같으면 무조건 강제 업데이트 합니다 (숫자만 입력해주세요!)</span>
+        </div>
+		<br>
+		<div>
+            <label for="game_showversion">게임 버전 (보여질 버전) <span class="text-danger">*</span></label>
+            <input class=form-control type="text" name="game_showversion" value="{$game_showversion}">
+            <span class="help-block">유저들에게 보여질 버전입니다. (예. 1.0.0)</span>
+        </div>
+		<hr>
+		<h4><strong>▷ 게임 업데이트</strong></h4>
+		<br>
+        <div>
+            <label for="game_update_link">게임 업데이트 링크 <span class="text-danger">*</span></label>
+            <input class=form-control type="text" name="game_update_link" value="{$game_update_link}">
+            <span class="help-block">게임 업데이트시 파일을 다운로드할 링크입니다.</span>
+        </div>
+		<br>
+        <div>
+            <label for="game_update_name">게임 업데이트 파일 이름 (exe) <span class="text-danger">*</span></label>
+            <input class=form-control type="text" name="game_update_name" value="{$game_update_name}">
+            <span class="help-block">게임 업데이트시 사용할 파일의 이름 입니다.</span>
+        </div>
+		<hr>
+		<h4><strong>▷ 공지 및 기타 설정</strong></h4>
+		<br>
+		<div>
+            <label for="game_notice">게임 공지 사항 게시글 srl</label>
+            <input class=form-control type="text" name="game_notice" value="{$game_notice}" readonly>
+            <span class="help-block">게임 공지사항 게시글의 번호입니다. 내용 수정시 게시글을 새로 올리지 마시고 수정해주세요. srl 수정시 관리자에게 문의하세요.</span>
+        </div>
+		<br>
+        <div>
+            <label for="game_datas">게임 데이터</label>
+            <textarea name="game_datas" class="form-control" rows="5">{$game_datas}</textarea>
+            <span class="help-block">게임에서 사용할 데이터를 json 형식으로 입력해주세요.</span>
+        </div>
+		</div>
+        <div class="centralize"><input class="eq button button-naver margin-bottom-small" type="submit" value="업데이트" /></div>
+    </div>
+</form>
+<script>
+function PickRandomWord() {
+	var rndword = "";
+	var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_!#$*-\\/+";
+	for(i=0; i<10; i++){
+		rndword += possible.charAt(Math.floor(Math.random() * possible.length));
+	}
+	document.getElementById('game_secret').value = rndword
+}
+</script>
+<script>
+	
+	// 즉시 실행되는 함수 ( 익명함수 호출 )
+	(function(){            
+
+		var pwd = document.getElementById('game_secret');        // 비밀번호 입력상자의 요소를 가져온다.
+		var chk = document.getElementById('showPwd');    // 체크박스 요소를 가져온다.
+
+		// 이벤트 등록 
+		addEvent(chk, 'change', function(e) {            // 체크박스의 값이 변경(change)되면  
+			var target = e.target || e.srcElement;        // 이벤트가 발생된 해당 체크박스 요소를 가져온다.
+			// e.target 속성은 대부분 브라우저에서 지원되지만, 구 버전 IE의 경우 e.srcElement 속성을  이용해야 한다. 
+
+			try    {
+				if (target.checked) {        // 체크박스에 체크되어 있으면
+					pwd.type = 'text';       // input 요소의 타입을 text 타입으로 변경
+				} else {                     // 그렇지 않으면
+					pwd.type = 'password';   // input 요소의 타입을 password 타입으로 변경
+				}
+			}
+			catch (error) { //오류가 발생하며 경고메시지 출력
+				alert('이 브라우저는 입력의 종류를 변결할 수 없습니다.'); 
+			}
+		});
+	}());
+
+	// 이벤트 리스너를 추가하는 헬퍼 함수
+	function addEvent ( el, event, callback ) {
+		if ('addEventListener' in el) { // addEventListener 메서드가 지원되는지 확인
+			el.addEventListener(event, callback, false);
+		} else { // 지원하지 않으면 IE용 대체 코드를 작성
+			el['e' + event + callback] = callback;    // callback 함수를 el 요소의 메서드로 할당
+			el[event + callback] = function () {
+				el['e' + event + callback] (window.event);
+			};
+			el.attachEvent('on' + event, el[event + callback]);
+		}
+	}
+	
+	// 이벤트 리스너를 제거하는 핼퍼 함수
+	function removeEvent(el, event, callback) {
+		if ('removeEventListener' in el) {   // removeEventListener 메서드가 지원되는지 확인
+			el.removeEventListener(event, callback, false);     
+		} else {                                                // 지원하지 않으면 
+			el.detachEvent('on' + event, el[event + callback]); // IE용 대체 코드를 작성
+			el[event + callback] = null;
+			el['e' + event + callback] = null;
+	  }
+	}
+
+</script>

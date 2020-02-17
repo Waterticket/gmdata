@@ -1,0 +1,7 @@
+<table name="gmdata_log">
+	<column name="game_token" type="varchar" size="250" notnull="notnull" /> 
+	<column name="log_status" type="number" size="11" notnull="notnull" default="0" index="idx_log_status" /> 
+	<column name="logs" type="bigtext" notnull="notnull" /> 
+	<column name="member_srl" type="number" size="11" notnull="notnull" default="0" index="idx_member_srl" /> 
+	<column name="log_time" type="varchar" size="20" notnull="notnull" /> 
+</table>
