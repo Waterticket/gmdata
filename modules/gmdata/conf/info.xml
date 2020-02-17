@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="0.2">
+    <title xml:lang="ko">게임메이커 게임 등록</title>
+    <description xml:lang="ko">게임 등록과 관리를 할수 있는 모듈입니다.</description>
+    <version>1.0</version>
+    <date>2018-01-30</date>
+    <category>service</category>
+
+    <author email_address="matthew218@naver.com" link="https://www.cookiee.net/">
+        <name xml:lang="ko">Waterticket</name>
+    </author>
+</module>

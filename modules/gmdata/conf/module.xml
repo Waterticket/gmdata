@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+    <grants>
+        <grant name="create_gameboard" default="guest">
+            <title xml:lang="ko">보드 작성</title>
+        </grant>
+        <grant name="delete_gameboard" default="manager">
+            <title xml:lang="ko">보드 삭제</title>
+        </grant>
+    </grants>
+    <permissions>
+    </permissions>
+    <actions>
+        <action name="dispGMdataContent" type="view" index="true" />
+        <action name="dispGMdataCreate" type="view" />
+        <action name="dispGMdataDelete" type="view" />
+        <action name="dispGMdataUpdate" type="view" />
+        <action name="dispGMdataView" type="view" />
+        <action name="dispGMdataPro" type="view" />
+        <action name="dispGMdataProConfirm" type="view" />
+		<action name="dispGMdataLoginSuccess" type="view" />
+		<action name="dispGMdataViewData" type="view" />
+		<action name="dispGMdataEditUserData" type="view" />
+        
+        <action name="procGMdataInsertBoard" type="controller" standalone="true" />
+        <action name="procGMdataUpdateBoard" type="controller" standalone="true" />
+        <action name="procGMdataDeleteBoard" type="controller" standalone="true" />
+        <action name="procGMdataInsertPro" type="controller" standalone="true" />
+		<action name="procGMdataLoginSuccess" type="controller" standalone="true" />
+		<action name="procGMdataUpdateUserData" type="controller" standalone="true" />
+        
+        <action name="dispGMdataAdminContent" type="view" standalone="true" admin_index="true" />
+        <action name="dispGMdataAdminInsertBoard" type="view" standalone="true" setup_index="true" />
+        <action name="dispGMdataAdminGivePrevilage" type="view" standalone="true" />
+        <action name="procGMdataAdminInsertBoard" type="controller" standalone="true" ruleset="insert_board" />
+        <action name="dispGMdataAdminDeleteBoard" type="view" standalone="true" />
+        <action name="procGMdataAdminDeleteBoard" type="controller" standalone="true" ruleset="delete_board" />
+    </actions>
+</module>
