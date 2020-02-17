@@ -1,0 +1,21 @@
+<query id="updateBoard" action="update">
+	<tables>
+		<table name="gmdata" />
+	</tables>
+	<columns>
+		<column name="regdate" var="regdate" notnull="notnull" />
+        <column name="game_des" var="game_des" />
+        <column name="game_homepage" var="game_homepage" />
+		<column name="game_update_link" var="game_update_link" />
+		<column name="game_update_name" var="game_update_name" />
+		<column name="game_version" var="game_version" />
+		<column name="game_version" var="game_version" />
+		<column name="game_minversion" var="game_minversion" />
+		<column name="game_showversion" var="game_showversion" />
+		<column name="game_datas" var="game_datas" />
+		<column name="game_secret" var="game_secret" />
+	</columns>
+	<conditions>
+		<condition operation="equal" column="game_token" var="game_token"  />
+	</conditions>
+</query>

@@ -1,0 +1,12 @@
+<query id="checkLoginData" action="select">
+    <tables>
+        <table name="gmdata_login" />
+    </tables>
+    <columns>
+        <column name="count(*)" alias="count"/>
+    </columns>
+    <conditions>
+		<condition operation="equal" column="game_token" var="game_token"/>
+		<condition operation="equal" column="member_srl" var="member_srl" pipe="and"/>
+    </conditions>
+</query>

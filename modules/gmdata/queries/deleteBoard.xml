@@ -1,0 +1,8 @@
+<query id="deleteBoard" action="delete">
+    <tables>
+        <table name="gmdata" />
+    </tables>
+    <conditions>
+        <condition operation="equal" column="game_token" var="game_token" />
+    </conditions>
+</query>

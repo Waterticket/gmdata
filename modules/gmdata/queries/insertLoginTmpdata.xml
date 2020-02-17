@@ -1,0 +1,10 @@
+<query id="insertLoginTmpdata" action="insert">
+	<tables>
+		<table name="gmdata_login_tmp" />
+	</tables>
+	<columns>
+		<column name="game_token" var="game_token" />
+		<column name="logtoken" var="logtoken" />
+        <column name="member_srl" var="member_srl" />
+	</columns>
+</query>

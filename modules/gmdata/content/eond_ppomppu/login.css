@@ -1,0 +1,183 @@
+@charset "utf-8";
+.blind{
+	display:none
+}
+.account {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	vertical-align: top;
+	margin: 0;
+	padding: 0;
+	
+	width: 230px;
+}
+.account>a,
+.account>.info .admin,
+.account>.info .logout {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	background: #fff;
+	border: 2px solid #d4d8db;
+	box-shadow: 1px 1px 0 #f3f3f3;
+	color: #404040;
+	text-decoration: none;
+	padding: 0 0 0 5px;
+	line-height: 21px;
+	font-family: 나눔고딕;
+	font-size: 11px;
+	margin: 0 0 5px 0;
+	width:50px
+}
+.account>fieldset {
+	z-index: 2;
+	margin: 0;
+	padding: 0;
+	border:0;
+}
+.account .info,
+.account>fieldset .login_box{
+	margin: 0;
+	padding:15px 10px
+}
+.account h2 {
+	display:none;
+	font-size: 13px;
+	color: #666;
+	margin: 0 0 18px 0;
+	line-height: 1;
+}
+.account label {
+	display: inline-block;
+	width: 65px;
+	margin: 0 0 5px 0;
+	color: #666;
+	font-size: 12px;
+}
+.account input[type="text"],
+.account input[type="email"],
+.account input[type="password"] {
+	height: 25px;
+	line-height: 25px;
+	padding: 0 4px;
+	margin: 0 0 5px 0;
+	width: 135px;
+	background: #fff;
+	border: 2px solid #bebebe;
+}
+
+.account input[type="checkbox"] {
+	width: 13px;
+	height: 13px;
+	margin: 0;
+	padding: 0;
+	vertical-align: middle;
+}
+.account input[type="checkbox"]+label {
+	display: inline;
+	vertical-align: middle;
+	cursor: pointer;
+}
+.account .idpw{
+	float:left;padding-right:10px
+}
+.account .idpw .btn_login{
+}
+.account .help {
+	list-style: none;
+	margin: 0;
+	padding: 2px 0 0;
+	border-top: 1px solid #dddddd;
+}
+.account .help li {
+	margin: 0 0 3px 0;
+	display: inline-block;
+	color: #404040;
+	line-height: 24px;
+	padding: 0 5px;
+	vertical-align:middle;
+}
+.account .help li:after{
+	padding:0 5px 0 10px;
+	content: "|";
+	font-size:11px;
+	color: #dedede;
+}
+.account .help li:last-child:after{
+	content: none;
+}
+.account .help label,
+.account .help a {
+	text-decoration: none;
+	color: #404040;
+	font-size: 11px;
+	font-family: "나눔고딕";
+}
+.account .help a:after {
+	content: "";
+	position: absolute;
+	right: 4px;
+	top: 7px;
+	border: 4px solid transparent;
+	border-left-color: #b2b2b2;
+}
+.account .help .join{
+	font-weight:bold;
+}
+.account .help input{
+	margin: 0 5px 0 0;
+}
+
+.account .info>li {
+	display: block;
+	*display: block;
+	zoom: 1;
+}
+.account .info .user {
+	display: inline-block;
+	font-size: 11px;
+	font-weight: bold;
+	color: #333;
+	text-decoration: none;
+	margin: 0;
+}
+
+.account .info .admin {
+	
+}
+.account .info .admin:before {
+	content: "";
+	display: inline-block;
+	width: 14px;
+	height: 12px;
+	vertical-align: middle;
+	margin: 0 2px 0 0;
+	background:  url(../../../../common/img/glyphicons-halflings.png) no-repeat -433px -2px;
+}
+
+.account .info .user_thum{
+	display:inline-block;
+	margin: 0 5px 0 0;
+	float:left;
+}
+.account .info .user_thum img{
+	width:48px;
+	height:48px;
+}
+.account .info .info_box,
+.account .info .logout_box{
+	display:inline-block;
+	margin:0px;
+	list-style: none;
+	padding:0;
+}
+.account .info .logout_box{
+	float:right;
+}
+.account .info .logout_box span{
+	display:block;
+}
+.account .info .info_box li{
+	margin:0 0 4px 0;
+}

@@ -1,0 +1,12 @@
+<query id="insertChats" action="insert">
+	<tables>
+		<table name="gmdata_chats" />
+	</tables>
+	<columns>
+		<column name="game_token" var="game_token" />
+		<column name="usr_srl" var="usr_srl" />
+		<column name="name" var="name" />
+        <column name="chat_datas" var="chat_datas" />
+		<column name="log_time" var="log_time" />
+	</columns>
+</query>

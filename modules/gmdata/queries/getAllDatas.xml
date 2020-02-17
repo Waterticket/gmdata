@@ -1,0 +1,14 @@
+<query id="getAllDatas" action="select">
+    <tables>
+        <table name="gmdata_board" />
+    </tables>
+    <columns>
+		<column name="usr_srl" alias="usr_srl" />
+		<column name="mb_status" alias="mb_status" />
+        <column name="name" alias="name" />
+        <column name="datas" alias="datas" />
+    </columns>
+    <conditions>
+		<condition operation="equal" column="game_token" var="game_token"/>
+    </conditions>
+</query>

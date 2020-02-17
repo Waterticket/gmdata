@@ -1,0 +1,24 @@
+<query id="insertBoard" action="insert">
+	<tables>
+		<table name="gmdata" />
+	</tables>
+	<columns>
+		<column name="regdate" var="regdate" notnull="notnull" />
+		<column name="member_srl" var="member_srl" />
+        <column name="game_name" var="game_name" default="none" />
+        <column name="game_des" var="game_des" default="none" />
+		<column name="game_token" var="game_token" default="none" />
+		<column name="game_secret" var="game_secret" default="none" />
+		<column name="game_homepage" var="game_homepage" default="none" />
+		<column name="game_platform" var="game_platform" default="winpc" />
+		<column name="game_status" var="game_status" default="none" />
+		<column name="user_count" var="user_count" default="none" />
+		<column name="game_update_link" var="game_update_link" default="none" />
+		<column name="game_update_name" var="game_update_name" default="none" />
+		<column name="game_version" var="game_version" default="1" />
+		<column name="game_minversion" var="game_minversion" default="1" />
+		<column name="game_notice" var="game_notice" default="0" />
+		<column name="game_showversion" var="game_showversion" default="1.0" />
+		<column name="game_datas" var="game_datas" default="none" />
+	</columns>
+</query>

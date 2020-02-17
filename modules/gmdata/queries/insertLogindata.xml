@@ -1,0 +1,9 @@
+<query id="insertLogindata" action="insert">
+	<tables>
+		<table name="gmdata_login" />
+	</tables>
+	<columns>
+		<column name="game_token" var="game_token" />
+        <column name="member_srl" var="member_srl" />
+	</columns>
+</query>

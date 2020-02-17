@@ -1,0 +1,13 @@
+<query id="insertScore" action="insert">
+	<tables>
+		<table name="gmdata_board" />
+	</tables>
+	<columns>
+		<column name="usr_srl" var="usr_srl" />
+		<column name="mb_status" var="mb_status" />
+		<column name="game_token" var="game_token" />
+		<column name="name" var="name" />
+        <column name="datas" var="datas" />
+		<column name="log_time" var="log_time" />
+	</columns>
+</query>

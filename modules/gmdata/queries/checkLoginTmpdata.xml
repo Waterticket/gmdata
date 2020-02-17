@@ -1,0 +1,12 @@
+<query id="checkLoginTmpdata" action="select">
+    <tables>
+        <table name="gmdata_login_tmp" />
+    </tables>
+    <columns>
+        <column name="member_srl"/>
+    </columns>
+    <conditions>
+		<condition operation="equal" column="game_token" var="game_token"/>
+		<condition operation="equal" column="logtoken" var="logtoken" pipe="and"/>
+    </conditions>
+</query>

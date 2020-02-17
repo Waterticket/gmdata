@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.2">
+    <title xml:lang="ko">Sweet Mobile 레이아웃</title>
+    <title xml:lang="en">Sweer Mobile Layout</title>
+    <description xml:lang="ko">
+		XE 공모전 2014에 출품할 목적으로 개발한 모바일 기기용 레이아웃입니다.
+    </description>
+    <description xml:lang="en">
+        This mobile layout was developed for XE Contest 2014.
+    </description>
+    <version>1.4</version>
+    <date>2014-12-26</date>
+    <link>http://www.handyxe.com/</link>
+
+    <author email_address="dlehdanakf@handyxe.com" link="http://www.handyxe.com">
+        <name xml:lang="ko">HandyXE</name>
+        <name xml:lang="en">HandyXE</name>
+    </author>
+    <extra_vars>
+		<var name="layout_color" type="radio">
+			<title xml:lang="ko">컬러셋</title>
+			<title xml:lang="en">Colorset</title>
+			<options value="blue" checked="checked">
+				<title xml:lang="ko">파란색</title>
+				<title xml:lang="en">blue</title>
+			</options>
+			<options value="skyblue">
+				<title xml:lang="ko">하늘색</title>
+				<title xml:lang="en">skyblue</title>
+			</options>
+			<options value="green">
+				<title xml:lang="ko">초록색</title>
+				<title xml:lang="en">green</title>
+			</options>
+			<options value="xe">
+				<title xml:lang="ko">보라색</title>
+				<title xml:lang="en">xe</title>
+			</options>
+			<options value="red">
+				<title xml:lang="ko">빨간색</title>
+				<title xml:lang="en">red</title>
+			</options>
+			<options value="pink">
+				<title xml:lang="ko">핑크색</title>
+				<title xml:lang="en">pink</title>
+			</options>
+		</var>
+        <var name="logo_image" type="image">
+            <title xml:lang="ko">로고이미지</title>
+            <title xml:lang="en">Logo image</title>
+            <description xml:lang="ko">레이아웃의 상단에 표시될 로고이미지를 입력하세요. (세로길이가 20px인 흰색 배경이미지가 가장 어울립니다)</description>
+            <description xml:lang="en">Please input a logo image which will be displayed on the top of the layout. (Transparent image with height of 20px is recommended.)</description>
+        </var>
+        <var name="logo_image_alt" type="text">
+            <title xml:lang="ko">로고이미지 대체문자</title>
+            <title xml:lang="en">Logo image alt text</title>
+            <description xml:lang="ko">홈페이지의 상단에 표시될 로고이미지 대체문자를 입력하세요.</description>
+            <description xml:lang="en">Please input a logo image alternative text which will be displayed on the top of the site.</description>
+        </var>
+		<var name="layout_type" type="select">
+			<title xml:lang="ko">본문 타입</title>
+			<title xml:lang="en">Layout type</title>
+			<options value="main">
+				<title xml:lang="ko">메인 슬라이드 타입</title>
+				<title xml:lang="en">Main slider type</title>
+			</options>
+			<options value="map">
+				<title xml:lang="ko">사이트맵 타입</title>
+				<title xml:lang="en">Sitemap type</title>
+			</options>
+			<options value="sub">
+				<title xml:lang="ko">서브 타입</title>
+				<title xml:lang="en">Sub type</title>
+			</options>
+		</var>
+        <var name="main_slides_menu" type="text">
+            <title xml:lang="ko">메인 슬라이더 메뉴</title>
+            <title xml:lang="en">Navigation of main page slider</title>
+            <description xml:lang="ko">메인페이지로 레이아웃모드를 선택하셨다면 슬라이드 갯수에 맞게 메뉴를 입력하세요. 각 메뉴명은 @ (At) 으로 구분됩니다.</description>
+            <description xml:lang="en">Please input navigation for main slide. each menu item is divided from At. (@)</description>
+        </var>
+        <var name="copyrights" type="text">
+            <title xml:lang="ko">하단 저작권</title>
+            <title xml:lang="en">Footer Copyrights</title>
+            <description xml:lang="ko">사이트 하단에 노출될 저작권 문구를 입력하세요.</description>
+            <description xml:lang="en">Please input copyright sentence. This sentence will display on botton of your website</description>
+        </var>
+    </extra_vars>
+    <menus>
+        <menu name="main_menu" maxdepth="3" default="true">
+            <title xml:lang="ko">사이드 메뉴</title>
+            <title xml:lang="en">Side Navigation</title>
+        </menu>
+        <menu name="sitemap_menu" maxdepth="3" default="true">
+            <title xml:lang="ko">사이트맵 메뉴</title>
+            <title xml:lang="en">Sitemap Navigation</title>
+        </menu>
+        <menu name="footer_menu" maxdepth="3" default="true">
+            <title xml:lang="ko">하단 메뉴</title>
+            <title xml:lang="en">Footer Navigation</title>
+        </menu>
+    </menus>
+</layout>

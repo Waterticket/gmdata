@@ -1,0 +1,14 @@
+<query id="getChats" action="select">
+    <tables>
+        <table name="gmdata_chats" />
+    </tables>
+    <columns>
+		<column name="usr_srl" alias="usr_srl" />
+        <column name="name" alias="name" />
+        <column name="chat_datas" alias="chat_datas" />
+		<column name="log_time" alias="log_time" />
+    </columns>
+    <conditions>
+		<condition operation="equal" column="game_token" var="game_token"/>
+    </conditions>
+</query>

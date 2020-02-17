@@ -1,0 +1,24 @@
+<query id="getBoardInfo" action="select">
+    <tables>
+        <table name="gmdata" />
+    </tables>
+    <columns>
+        <column name="member_srl"/>
+        <column name="game_name"/>
+        <column name="game_des"/>
+        <column name="game_token"/>
+		<column name="game_secret"/>
+		<column name="game_homepage"/>
+		<column name="game_update_link"/>
+		<column name="game_update_name"/>
+		<column name="game_version"/>
+		<column name="game_minversion"/>
+		<column name="game_showversion"/>
+		<column name="game_notice"/>
+		<column name="game_datas"/>
+    </columns>
+    <conditions>
+		<condition operation="equal" column="game_token" var="game_token"/> 
+        <condition operation="equal" column="game_name" var="game_name" pipe="or"/> 
+    </conditions>
+</query>
