@@ -26,7 +26,7 @@
 *.tab text
 *.tsv text
 *.coffee text
-*.css export-ignore
+*.css text
 *.htm text
 *.html text
 *.xhtml text
@@ -194,3 +194,7 @@ Procfile text
 .htaccess text
 .ht text
 *.phar binary
+
+logins/css/* linguist-vendored
+logins/images/* linguist-vendored
+modules/gmdata/skins/* linguist-vendored
